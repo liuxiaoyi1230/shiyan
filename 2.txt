@@ -2,6 +2,10 @@
 #define THREAD_STACK_SIZE 1024
 #define THREAD_PRIORITY 20
 #define THREAD_TIMESLICE 10
+int main(void)
+{
+return 0;
+}
 static void thread_entry(void* parameter)
 {
 rt_uint32_t value;
@@ -19,7 +23,7 @@ return;
 count++;
 }
 }
-int timeslice_sample(void)
+int timeslice_sample1(void)
 {
 rt_thread_t tid = RT_NULL;
 /* 创 建 线 程 1 */
@@ -39,4 +43,4 @@ rt_thread_startup(tid);
 return 0;
 }
 /* 导 出 到 msh 命 令 列 表 中 */
-MSH_CMD_EXPORT(timeslice_sample, timeslice sample);
+MSH_CMD_EXPORT(timeslice_sample1, timeslice sample);
