@@ -4,6 +4,10 @@ static rt_timer_t timer1;
 static rt_timer_t timer2;
 static int cnt = 0;
 /* 定 时 器 1 超 时 函 数 */
+int main(void)
+{
+	return 0;
+}
 static void timeout1(void *parameter)
 {
 rt_kprintf("periodic timer is timeout %d\n", cnt);
@@ -19,7 +23,7 @@ static void timeout2(void *parameter)
 {
 rt_kprintf("one shot timer is timeout\n");
 }
-int timer_sample(void)
+int timer_sample1(void)
 {
 /* 创 建 定 时 器 1 周 期 定 时 器 */
 timer1 = rt_timer_create("timer1", timeout1,
@@ -38,4 +42,4 @@ rt_timer_start(timer2);
 return 0;
 }
 /* 导 出 到 msh 命 令 列 表 中 */
-MSH_CMD_EXPORT(timer_sample, timer sample);
+MSH_CMD_EXPORT(timer_sample1, timer sample);
