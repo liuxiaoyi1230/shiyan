@@ -4,10 +4,7 @@
 # define THREAD_STACK_SIZE 512
 # define THREAD_TIMESLICE 5
 static rt_thread_t tid1 = RT_NULL;
-in main(void)
-{
-return 0;
-}
+
 static void thread1_entry(void *parameter)
 {
 rt_uint32_t count = 0;
@@ -34,7 +31,7 @@ rt_kprintf("thread2 count: %d\n", count);
 rt_kprintf("thread2 exit\n");
 /* 线 程 2 运 行 结 束 后 也 将 自 动 被 系 统 脱 离 */
 }
-int thread_sample(void)
+int thread_sample1(void)
 {
 /* 创 建 线 程 1， 名 称 是 thread1， 入 口 是 thread1_entry*/
 tid1 = rt_thread_create("thread1",
@@ -56,4 +53,4 @@ rt_thread_startup(&thread2);
 return 0;
 }
 /* 导 出 到 msh 命 令 列 表 中 */
-MSH_CMD_EXPORT(thread_sample, thread sample);
+MSH_CMD_EXPORT(thread_sample1, thread sample);
