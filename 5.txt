@@ -7,6 +7,10 @@ static rt_mutex_t mutex = RT_NULL;
 #define THREAD_PRIORITY 10
 #define THREAD_STACK_SIZE 512
 #define THREAD_TIMESLICE 5
+int main(void)
+{
+return 0;
+}
 /* 线 程 1 入 口 */
 static void thread1_entry(void *parameter)
 {
@@ -63,7 +67,7 @@ tick = rt_tick_get();
 while (rt_tick_get() - tick < (RT_TICK_PER_SECOND / 2)) ;
 rt_mutex_release(mutex);
 }
-int pri_inversion(void)
+int pri_inversion1(void)
 {
 /* 创 建 互 斥 锁 */
 mutex = rt_mutex_create("mutex", RT_IPC_FLAG_FIFO);
@@ -99,4 +103,4 @@ rt_thread_startup(tid3);
 return 0;
 }
 /* 导 出 到 msh 命 令 列 表 中 */
-MSH_CMD_EXPORT(pri_inversion, pri_inversion sample);
+MSH_CMD_EXPORT(pri_inversion1, pri_inversion sample);
