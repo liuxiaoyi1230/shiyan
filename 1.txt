@@ -4,9 +4,9 @@
 # define THREAD_STACK_SIZE 512
 # define THREAD_TIMESLICE 5
 static rt_thread_t tid1 = RT_NULL;
-int main(void)
+in main(void)
 {
-	return 0;
+return 0;
 }
 static void thread1_entry(void *parameter)
 {
